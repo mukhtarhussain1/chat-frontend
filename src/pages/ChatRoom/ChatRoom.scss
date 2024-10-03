@@ -1,0 +1,238 @@
+
+
+.chat-container {
+  display: flex;
+  gap: 20px;
+  height: 85vh;
+  margin-inline: 20px;
+
+  // Left side: Contact List
+  .contact-list {
+    width: 30%;
+
+    overflow-y: auto;
+
+    .search-bar {
+      margin-bottom: 20px;
+
+      .custom-SearchBar-container {
+        display: flex;
+        padding: 0 10px;
+        height: 36px;
+        border-radius: 10px;
+        border: 1px solid gray;
+
+        input {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          color: gray;
+        }
+      }
+    }
+
+    .contacts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+
+        &:hover,
+        &.active {
+          background-color: #f0f0f0;
+
+          .contact-info {
+            h4 {
+              color: darkblue;
+            }
+          }
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-right: 15px;
+        }
+
+        .contact-info {
+          h4 {
+            margin: 0;
+            color: #565656;
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 20.7px;
+            padding-bottom: 10px;
+          }
+
+          p {
+            color: #666;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 11.5px;
+          }
+        }
+      }
+    }
+  }
+
+  // Right side: Chat Area
+  .chat-area {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+
+      .contact-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 22px;
+        color: #000000;
+        font-family: Arial;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 27.6px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+
+      .message {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+
+        &.sent {
+          justify-content: flex-end;
+        }
+
+        &.received {
+          justify-content: flex-start;
+        }
+
+        .message-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        .message-content {
+          max-width: 60%;
+          padding: 10px;
+          border-radius: 12px;
+          position: relative;
+
+          p {
+            margin: 0;
+            font-size: 14px;
+          }
+
+          .message-time {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            display: block;
+
+            .read-icon {
+              font-size: 12px;
+              margin-left: 5px;
+            }
+          }
+        }
+
+        &.sent .message-content {
+          background-color: #2b4d82;
+          color: white;
+
+          .message-time {
+            color: #ccc;
+          }
+        }
+
+        &.received .message-content {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+
+    .chat-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 100%;
+        input {
+          flex-grow: 1;
+          border: none;
+          outline: none;
+          font-size: 16px;
+          margin-right: 10px;
+        }
+
+        .icons {
+          display: flex;
+
+          gap: 10px;
+
+          svg {
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .send-button {
+        background-color: #2b4d82;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
