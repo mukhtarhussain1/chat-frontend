@@ -87,6 +87,7 @@ const ChatRoom = () => {
     }
   }, []);
 
+  // for joining the chat room
   useEffect(() => {
     if (user) {
       const newSocket = io("http://localhost:5000");
@@ -98,6 +99,7 @@ const ChatRoom = () => {
     }
   }, [user]);
 
+  // for receiving messages
   useEffect(() => {
     if (socket) {
       socket.on("receiveMessage", (data) => {
@@ -138,6 +140,7 @@ const ChatRoom = () => {
     }
   }, [socket]);
 
+  // for sending messages
   const handleSendMessage = () => {
     if (message.trim() && socket && user) {
       const newMessage = {
@@ -169,7 +172,6 @@ const ChatRoom = () => {
             <div className="custom-SearchBar-container">
               {/* <ReactSVG className="search-icon" src={SearchIcon} /> */}
               <input type="text" placeholder="Send message" />
-                  
             </div>
           </div>
           <ul className="contacts">
